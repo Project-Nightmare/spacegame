@@ -19,21 +19,37 @@ public class Player : WorldObject
 
     private void Update()
     {
+        Movement(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     }
 
     private void FixedUpdate()
     {
-        Movement(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
     }
+
+    private void Gather()
+    {
+
+    }
+
+    private void UseItem()
+    {
+
+    }
+
+    private void Jump()
+    {
+
+    }
+
+
 
     private void Movement(float InputX, float InputY)
     {
         InputX *= Time.deltaTime * MoveSpeed;
         InputY *= Time.deltaTime * MoveSpeed;
 
-        Vector2 Position = this.transform.position;
-        
-        this.Body.MovePosition(Position + new Vector2(InputX, InputY));
+        this.body.AddForce((Vector2)this.transform.position + new Vector2(InputX, InputY));
 
        // transform.Rotate(InputX, (InputY * -1), 0, 0);
     }

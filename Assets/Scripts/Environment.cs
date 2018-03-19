@@ -5,7 +5,7 @@ using UnityEngine;
 public class Environment : MonoBehaviour
 {
     [Range(0.0F, 100.0F)]
-    public static float Gravity = 35.0F;
+    public static float Gravity = 10.0F;
 
     private static WorldObject[] _WorldObjects;
     public static WorldObject[] WorldObjects
