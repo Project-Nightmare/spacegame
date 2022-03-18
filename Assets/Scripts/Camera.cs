@@ -2,25 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour {
-
-    [SerializeField]
-    Player player;
-
+public class Camera : MonoBehaviour
+{
     Vector2 offset;
+    Player player;
 
     // Use this for initialization
     void Start()
     {
-        //Calculate and store the offset value by getting the distance between the player's position and camera's position.
-        //offset = transform.position - player.transform.position;
+        player = (Player)FindObjectOfType(typeof(Player));
+        offset = transform.position - player.transform.position;
     }
 
-    // LateUpdate is called after Update each frame
+    private void FixedUpdate()
+    {
+
+    }
+
+    private void Update()
+    {
+
+        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position - transform.position), 1 * Time.deltaTime);
+
+        //transform.position += this.transform.forward * Time.deltaTime;
+    }
+
     void LateUpdate()
     {
-        // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
-        //transform.position = (Vector2)player.transform.position + offset;
-        //transform.LookAt(player.transform.position);
+        float smoothTime = 0.3f;
+        Vector3 velocity = Vector3.zero;
+
+        Vector3 goalPos = player.transform.position;
+        goalPos = player.transform.position;
+        goalPos.z = -2;
+        this.transform.position = Vector3.SmoothDamp(this.transform.position, goalPos, ref velocity, smoothTime);
     }
 }

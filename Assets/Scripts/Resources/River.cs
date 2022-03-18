@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class River : Resource
 {
-    public River(Planet parent, int degree)
+    public River(Planet parent, float angle)
     {
         this.planet = parent;
-        this.position = degree;
+        this.angle = angle;
     }
 }

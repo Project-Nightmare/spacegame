@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Ice : Resource
 {
-    public Ice(Planet parent, int degree)
+    public Ice(Planet parent, float angle)
     {
         this.planet = parent;
-        this.position = degree;
+        this.angle = angle;
     }
 }

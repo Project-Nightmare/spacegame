@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Volcano : Resource
 {
-    public Volcano(Planet parent, int degree)
+    public Volcano(Planet parent, float angle)
     {
         this.planet = parent;
-        this.position = degree;
+        this.angle = angle;
     }
 }
